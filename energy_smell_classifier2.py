@@ -6,7 +6,7 @@ import re
 df = pd.read_csv("data/python_code_first_10000.csv")
 
 # Filter Accepted Samples
-df = df[(df['Status_v0'] == 'Accepted') & (df['Status_v1'] == 'Accepted')]
+df = df[(df['status_v0'] == 'Accepted') & (df['status_v1'] == 'Accepted')]
 df = df[df['improvement_frac'] > 0]  # Ensure improvement exists
 
 # Define classification rules
@@ -15,7 +15,7 @@ def classify_code(code):
         return "ExtraUsageOfArrays"
     if re.search(r'for .* in range\(.*\):[^\n]*$', code) and 'break' not in code:
         return "LackingBreak"
-    if re.search(r'for .* in range\(.*\):.*=.*\1', code):
+    if re.search(r'for\s+\w+\s+in\s+range\([^)]*\):\s*\w+\s*=\s*\w+', code):
         return "NotCaching"
     if re.search(r'for .* in range\(.*\):.*for .* in range\(.*\):', code):
         return "OverUseOfLoops"

@@ -1,0 +1,1 @@
+mkdir check_subset_sum_exists && cd check_subset_sum_exists && touch smelly_check_subset_sum_exists.py refactored_check_subset_sum_exists.py && code smelly_check_subset_sum_exists.py && cd ..

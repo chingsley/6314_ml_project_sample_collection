@@ -1,0 +1,8 @@
+def fibonacci(n: int, memo) -> int:
+    """Computes the nth Fibonacci number recursively with caching."""
+    if n <= 1:
+        return n
+    if not n in memo:
+        memo[n] = fibonacci(n - 1) + fibonacci(n - 2)
+
+    return memo[n]

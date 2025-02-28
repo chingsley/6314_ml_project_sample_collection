@@ -1,3 +1,8 @@
+# this is how to run this file:
+# python energy_smell_classifier.py data/python_code_last_1000.csv --chunk_size 200
+# data/python_code_last_1000.csv is the relative path of your input file. Change as necessary
+
+
 import os
 import pandas as pd
 import ast
